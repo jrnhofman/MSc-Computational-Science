@@ -1,0 +1,4 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Task A}{3}
+\contentsline {section}{\numberline {2}Task B}{3}
+\contentsline {section}{\numberline {3}Task D}{5}

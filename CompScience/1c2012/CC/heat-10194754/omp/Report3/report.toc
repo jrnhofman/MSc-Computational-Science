@@ -1,0 +1,8 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {2}Heat diffusion with OpenMP}{3}
+\contentsline {subsection}{\numberline {2.1}Algorithm}{3}
+\contentsline {subsection}{\numberline {2.2}Results}{4}
+\contentsline {section}{\numberline {3}Scheduling types}{6}
+\contentsline {section}{\numberline {4}OpenMP Features}{8}
+\contentsline {section}{\numberline {5}Conclusions}{10}

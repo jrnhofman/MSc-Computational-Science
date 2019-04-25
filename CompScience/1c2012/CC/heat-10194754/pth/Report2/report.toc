@@ -1,0 +1,14 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {2}Heat diffusion with pthreads}{3}
+\contentsline {subsection}{\numberline {2.1}Algorithm}{3}
+\contentsline {subsection}{\numberline {2.2}Results}{4}
+\contentsline {section}{\numberline {3}Barrier synchronization}{7}
+\contentsline {subsection}{\numberline {3.1}The original POSIX functions}{7}
+\contentsline {subsection}{\numberline {3.2}Mutex locks and condition variables}{7}
+\contentsline {subsection}{\numberline {3.3}Semaphores}{7}
+\contentsline {subsection}{\numberline {3.4}Results}{8}
+\contentsline {section}{\numberline {4}Sieve of Eratosthenes}{9}
+\contentsline {subsection}{\numberline {4.1}Algorithm}{9}
+\contentsline {subsection}{\numberline {4.2}Results}{11}
+\contentsline {section}{\numberline {5}Conclusions}{12}

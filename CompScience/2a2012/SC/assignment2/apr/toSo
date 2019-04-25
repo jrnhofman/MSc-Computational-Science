@@ -1,0 +1,9 @@
+#rm libapr.* *.a *.o
+mpicc -c apr.c -o apr.o -Wall
+ar rcs libapr.a apr.o
+#mpicc -fPIC -c apr.c -o apr.o -Wall
+#mpicc -shared -Wl,-soname,libapr.so.1 -o libapr.so.1.0.1 apr.o
+#mpicc -shared -o libapr.so apr.o
+#mv libapr.so.1.0.1 libapr.so.1
+#cp libapr.so.1 libapr.so
+rm *.o

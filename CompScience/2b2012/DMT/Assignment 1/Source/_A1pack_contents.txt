@@ -1,0 +1,9 @@
+This package contains what you need in order to complete Assignment 1 of VUDMT 2012. For the record, here's a summary:
+
+Assignment1.pdf - Naturally, this is the assignment description. Read it carefully, and good luck working on the tasks!
+
+RapidDoc.pdf - Some practical info about RapidMiner, might help in case it is your chosen DM software.
+
+ODI III...zip - The dataset we created during Lecture 1. Use this to uncover hidden patterns in the data about you :)
+
+ODI I and ODI II - Very similar (but not entirely compatible) datasets from the previous two years. Curious people might want to do some comparison to the ODI III dataset, merge them for some purpose, etc., but the use of these two datasets is optional.

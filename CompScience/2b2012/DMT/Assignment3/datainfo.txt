@@ -1,0 +1,20 @@
+The file FIFA0212.csv contains data about the official international matches (including fixtures) between 4 January 2002 and 30 June 2012 available via the FIFA.com website (extracted on 3/05/12). Each game is described by 11 attributes:
+
+Date        - format dd/mm/yyyy
+Team1,Team2 - two teams involved in an encounter
+Score1      - number of goals scored by Team1
+Score2      - -----------||-----------  Team2
+ET          - information 0/1 if extra time was played
+PSO         - if 0, there was no penalty shootout; 1 (2) indicates there was penalty shootout won by Team1 (Team2)
+Location    - the city (stadium) where the game took place
+HomeTeam    - 1 if the location of the game is in the country of Team1, 0 if it was played on neutral ground. This information is 	              extracted from the 'Location' attribute 
+Type        - type of the game with the same convention as on the official FIFA website. 
+              This factor can assume 6 levels:
+              * Continental Final
+              * Continental Qualifier
+              * FIFA Confederations Cup
+              * FIFA WorldCup� Final
+              * FIFA WorldCup� Qualifier
+              * Friendly
+Info        - additional information if the victory was awarded (AWD) to either of the teams due to other reasons (for example, 
+              misbehaviour of the fans), 0 otherwise

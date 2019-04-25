@@ -1,0 +1,11 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Part 1: Option valuation}{3}
+\contentsline {subsection}{\numberline {1.1}Binomal Tree}{3}
+\contentsline {subsubsection}{\numberline {1.1.1}Theory}{3}
+\contentsline {subsubsection}{\numberline {1.1.2}Method}{4}
+\contentsline {subsection}{\numberline {1.2}Black Scholes model}{5}
+\contentsline {subsection}{\numberline {1.3}Measurements and Results}{7}
+\contentsline {section}{\numberline {2}Part 2: Hedging Simulations}{12}
+\contentsline {subsection}{\numberline {2.1}Method}{12}
+\contentsline {subsection}{\numberline {2.2}Measurements and Results}{12}
+\contentsline {section}{\numberline {3}Conclusion}{16}

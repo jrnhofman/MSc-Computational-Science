@@ -1,0 +1,16 @@
+\select@language {english}
+\contentsline {title}{Data Mining Techniques\unskip \ \ignorespaces Assignment 3}{1}
+\authcount {1}
+\contentsline {author}{Jeroen Hofman (10194754) \ \ \ \ \ John Tyree (??)}{1}
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {2}Exploratory Data Analysis}{3}
+\contentsline {section}{\numberline {3}Model}{4}
+\contentsline {subsection}{\numberline {3.1}Ranking}{4}
+\contentsline {subsection}{\numberline {3.2}Probability Density Functions}{6}
+\contentsline {subsection}{\numberline {3.3}Prediction}{6}
+\contentsline {section}{\numberline {4}Results}{7}
+\contentsline {subsection}{\numberline {4.1}Cross Validation}{7}
+\contentsline {subsection}{\numberline {4.2}Parameter Optimization}{7}
+\contentsline {subsection}{\numberline {4.3}Prediction Confidence}{8}
+\contentsline {subsection}{\numberline {4.4}Na\"ive Model}{8}
+\contentsline {section}{\numberline {5}Conclusion}{10}

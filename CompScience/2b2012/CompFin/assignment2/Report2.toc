@@ -1,0 +1,22 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Part I: Option valuation}{3}
+\contentsline {subsection}{\numberline {1.1}Theory}{3}
+\contentsline {subsubsection}{\numberline {1.1.1}MC processes}{4}
+\contentsline {subsection}{\numberline {1.2}Method}{5}
+\contentsline {subsection}{\numberline {1.3}Results}{6}
+\contentsline {section}{\numberline {2}Part II: Sensitivity Analysis}{9}
+\contentsline {subsection}{\numberline {2.1}Theory}{9}
+\contentsline {subsection}{\numberline {2.2}Method}{11}
+\contentsline {subsection}{\numberline {2.3}Results}{12}
+\contentsline {section}{\numberline {3}Part III: Variance Reduction}{15}
+\contentsline {subsection}{\numberline {3.1}Part A: Antithetic Variables}{15}
+\contentsline {subsubsection}{\numberline {3.1.1}Theory}{15}
+\contentsline {subsubsection}{\numberline {3.1.2}Method}{16}
+\contentsline {subsubsection}{\numberline {3.1.3}Results}{16}
+\contentsline {subsection}{\numberline {3.2}Part B: Control Variates}{19}
+\contentsline {subsubsection}{\numberline {3.2.1}Theory}{19}
+\contentsline {subsubsection}{\numberline {3.2.2}Method}{21}
+\contentsline {subsubsection}{\numberline {3.2.3}Results}{22}
+\contentsline {section}{\numberline {4}Appendix}{24}
+\contentsline {subsection}{\numberline {4.1}Derivation of the variance of the payoff}{24}
+\contentsline {subsection}{\numberline {4.2}The $\delta $ of a digital call option}{25}

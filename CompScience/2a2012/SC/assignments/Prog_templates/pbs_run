@@ -1,0 +1,30 @@
+#PBS -S /bin/bash
+#PBS -lnodes=2:ppn=2
+#PBS -lwalltime=00:15:00 
+#PBS -N cpi
+
+PROG=formal
+
+ALLCPUS=no
+if [ $ALLCPUS = yes ]; then
+    GMCONF=no
+    NODES=$PBS_NODEFILE
+else
+    # Only start a single process per node
+    mkdir -p ~/.gmpi
+    GMCONF=~/.gmpi/mconf.$PBS_JOBID
+    uniq < $PBS_NODEFILE > $GMCONF
+    NODES=$GMCONF
+fi
+
+cd $PBS_O_WORKDIR
+NP=`cat $NODES | wc -l`
+
+/usr/local/gnu-mpich-ib/bin/mpirun -local -np $NP -hostfile $NODES $PBS_O_WORKDIR/$PROG> logfile  
+result=$?
+
+if [ $GMCONF != no ]; then
+    rm -f $GMCONF
+fi
+
+exit $result

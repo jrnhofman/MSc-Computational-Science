@@ -1,0 +1,127 @@
+%%% DOCUMENT SETUP %%%
+\documentclass[11pt,a4paper,onecolumn]{article}
+\usepackage[greek,english]{babel}
+
+%%% LAYOUT %%%
+\usepackage{fullpage}
+\usepackage[parfill]{parskip}
+\usepackage{multicol}
+\usepackage{footnote}
+
+%%% GRAPHICS %%%
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{graphics}
+\usepackage{rotating}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{xfrac}
+\usepackage{float}
+\usepackage{dsfont}
+
+%%% FONT %%%
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+    \setmainfont{Linux Libertine O}
+  \usepackage{xunicode}
+  \usepackage{microtype}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[latin1]{inputenc}
+  \usepackage{times}
+  \usepackage{microtype}
+\fi
+
+%%% Coding %%%
+\usepackage{listings}
+\usepackage{pseudocode}
+
+%%% TITLE PAGE %%%
+\author{Author1\footnote{\textbf{Info} Info \textbar\ \textbf{Info} \texttt{Info}} \ \ \ \ \ Author2\footnote{\textbf{Info} Info \textbar\ \textbf{Info} \texttt{Info}}  \\[15pt] University of Amsterdam (\textsc{UvA})}
+
+\title{Some clever title\\
+		}
+
+\begin{document}
+\maketitle
+\captionsetup{width=0.8\textwidth}
+\lstset{language=Python,breaklines=true,backgroundcolor=\color{white},frame=single}
+\thispagestyle{empty}
+
+%%% ABSTRACT %%%
+\begin{center}
+\begin{abstract}
+\small{Test. \\
+\textbf{Keywords: } \textbullet\ Fish school \ \textbullet\ Predation \ \textbullet\ 3 Dimensional Model }
+\end{abstract}
+\end{center}
+
+%%% TABLE OF CONTENTS %%%
+\newpage
+\tableofcontents
+\newpage
+
+\section{Experimental setup}
+In this section we first describe the benchmarks of the machine, more precisely the specifics of the parallel hardware and an estimate of the FLOPS/s. Secondly we look at the structure of the sequential code implemented to model a simple heat diffusion model. Thirdly we optimise the compiler for the specific model at hand.
+
+\subsection{Machine benchmarking}
+Since we ultimately want to measure the performance of the sequential code that is written, we want to obtain an estimate of the FLOPS/s for the machine one which the code is executed. This is done by implementing a simple program, provided by the instructors of the course, performing five different floating point operations during a time span of fifteen seconds. The operations should converge to $\pi$. The program was tested on two machines:
+
+\begin{itemize}
+\item 
+  HP Pavilion dm1 - OS: Ubuntu 11.10, Kernel: Linux 3.0.0-14-generic, Memory: 4 GB, Processor: AMD E-350 dualcore.
+\item
+  LISA - for specifications see \ref{LISA}, since only sequential code is used in this report, we will not make a difference between the 8-core and 12-core nodes.
+\end{itemize}
+
+We obtain the following results from the benchmark code (the code is executed three times per machine).
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l | c | r}
+    Machine & FLOP/s & Approximation of $\Pi$ \\
+    \hline
+    HP Pavilion dm1 & 196170013 & 3.141592655288159 \\
+    & 196268141 & 3.141592651890593 \\
+    & 195838531 & 3.141592655291024 \\ 
+    LISA & 615233452 & 3.141592654482680 \\
+    & 615377252 & 3.141592654129703 \\ 
+    & 615350123 & 3.141592654129727 \\
+  \end{tabular}
+  \caption{Results for the benchmark code.}
+  \label{tab:benchmark}
+\end{table}
+
+Clearly the node (an 8-node in this case) is much faster than the laptop ($6.15 10^8$ versus $1.96 10^8$), which is understandable since the LISA node is equipped with a quadcore while the laptop only has a dualcare processor. LISA also approximates $\pi$ better from the 9th decimal on (the 9th decimal should be a 3). We will use the results for LISA to compare the FLOP/s of our sequential code.
+
+\subsection{Structure of the sequential code}
+
+\subsection{Compiler optimisation}
+
+\section{Results}
+
+\section{Conclusions and discussion}
+
+
+
+
+
+
+%%% BIBLIOGRAPHY %%%
+\begin{thebibliography}{7}
+\bibitem{ref}
+  A. Author1, B. Author2, <Title>, <Year>, <Journal>, <Vol. ?>, <?? - ??>
+\end{thebibliography}
+
+\end{document}
+
+%%% Format for lstlisting %%%
+%\lstinputlisting{filename.java}
+%\begin{lstlisting}
+%\end{lstlisting}
+
+%%% Format for multicolumn in table %%%
+%\multicolumn{size}{orientation}{}

@@ -1,0 +1,111 @@
+LOCUS       HSAPECED                2245 bp    mRNA    linear   PRI 18-APR-2005
+DEFINITION  Homo Sapiens mRNA for AIRE protein.
+ACCESSION   Z97990
+VERSION     Z97990.1  GI:2665370
+KEYWORDS    Aire protein.
+SOURCE      Homo sapiens (human)
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Euarchontoglires; Primates; Catarrhini;
+            Hominidae; Homo.
+REFERENCE   1
+  AUTHORS   Aaltonen,J., Bjrses,P., Perheentupa,J., Horelli-Kuitunen,N.,
+            Paloti,A., Peltonen,L., Lee,Y.S., Francis,F., Hennig,S., Thiel,C.,
+            Lehrach,H. and Yaspo,M.L.
+  TITLE     An autoimmune disease, APECED, caused by mutations in a novel gene
+            featuring two PHD-type zinc-finger domains. The Finnish-German
+            APECED Consortium. Autoimmune
+            Polyendocrinopathy-Candidiasis-Ectodermal Dystrophy
+  JOURNAL   Nat. Genet. 17 (4), 399-403 (1997)
+   PUBMED   9398840
+REFERENCE   2  (bases 1 to 2245)
+  AUTHORS   Yaspo,M.L.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (21-JUL-1997) Max Planck Institut fur Molekulare Genetik,
+            Ihnestrasse 73, Berlin D-14195, Germany
+  REMARK    revised by submitter 24-SEP-1997
+FEATURES             Location/Qualifiers
+     source          1..2245
+                     /organism="Homo sapiens"
+                     /mol_type="mRNA"
+                     /db_xref="taxon:9606"
+                     /chromosome="21"
+                     /tissue_type="thymus"
+     source          1..1810
+                     /organism="Homo sapiens"
+                     /mol_type="mRNA"
+                     /db_xref="taxon:9606"
+                     /chromosome="21"
+                     /clone="B1-1"
+                     /tissue_type="thymus"
+                     /clone_lib="lambda GT11 from Clontech (cat# hl5010B)"
+     source          1811..2180
+                     /organism="Homo sapiens"
+                     /mol_type="mRNA"
+                     /db_xref="taxon:9606"
+                     /chromosome="21"
+                     /clone="D1-1"
+                     /tissue_type="thymus"
+                     /clone_lib="lambda GT11 from Clontech (cat# hl5010B)"
+     CDS             121..1758
+                     /codon_start=1
+                     /product="AIRE protein"
+                     /protein_id="CAB10790.1"
+                     /db_xref="GI:2665371"
+                     /db_xref="GOA:O43918"
+                     /db_xref="InterPro:IPR000770"
+                     /db_xref="InterPro:IPR001965"
+                     /db_xref="InterPro:IPR004865"
+                     /db_xref="InterPro:IPR008087"
+                     /db_xref="InterPro:IPR010919"
+                     /db_xref="InterPro:IPR011011"
+                     /db_xref="UniProtKB/Swiss-Prot:O43918"
+                     /translation="MATDAALRRLLRLHRTEIAVAVDSAFPLLHALADHDVVPEDKFQ
+                     ETLHLKEKEGCPQAFHALLSWLLTQDSTAILDFWRVLFKDYNLERYGRLQPILDSFPK
+                     DVDLSQPRKGRKPPAVPKALVPPPRLPTKRKASEEARAAAPAALTPRGTASPGSQLKA
+                     KPPKKPESSAEQQRLPLGNGIQTMSASVQRAVAMSSGDVPGARGAVEGILIQQVFESG
+                     GSKKCIQVGGEFYTPSKFEDSGSGKNKARSSSGPKPLVRAKGAQGAAPGGGEARLGQQ
+                     GSVPAPLALPSDPQLHQKNEDECAVCRDGGELICCDGCPRAFHLACLSPPLREIPSGT
+                     WRCSSCLQATVQEVQPRAEEPRPQEPPVETPLPPGLRSAGEEVRGPPGEPLAGMDTTL
+                     VYKHLPAPPSAAPLPGLDSSALHPLLCVGPEGQQNLAPGARCGVCGDGTDVLRCTHCA
+                     AAFHWRCHFPAGTSRPGTGLRCRSCSGDVTPAPVEGVLAPSPARLAPGPAKDDTASHE
+                     PALHRDDLESLLSEHTFDGILQWAIQSMARPAAPFPS"
+ORIGIN      
+        1 cgggcgcaca gccggcgcgg aggccccaca gccccgccgg gacccgaggc caagcgaggg
+       61 gctgccagtg tcccgggacc caccgcgtcc gccccagccc cgggtccccg cgcccacccc
+      121 atggcgacgg acgcggcgct acgccggctt ctgaggctgc accgcacgga gatcgcggtg
+      181 gccgtggaca gcgccttccc actgctgcac gcgctggctg accacgacgt ggtccccgag
+      241 gacaagtttc aggagacgct tcatctgaag gaaaaggagg gctgccccca ggccttccac
+      301 gccctcctgt cctggctgct gacccaggac tccacagcca tcctggactt ctggagggtg
+      361 ctgttcaagg actacaacct ggagcgctat ggccggctgc agcccatcct ggacagcttc
+      421 cccaaagatg tggacctcag ccagccccgg aaggggagga agcccccggc cgtccccaag
+      481 gctttggtac cgccacccag actccccacc aagaggaagg cctcagaaga ggctcgagct
+      541 gccgcgccag cagccctgac tccaaggggc accgccagcc caggctctca actgaaggcc
+      601 aagcccccca agaagccgga gagcagcgca gagcagcagc gccttccact cgggaacggg
+      661 attcagacca tgtcagcttc agtccagaga gctgtggcca tgtcctccgg ggacgtcccg
+      721 ggagcccgag gggccgtgga ggggatcctc atccagcagg tgtttgagtc aggcggctcc
+      781 aagaagtgca tccaggttgg tggggagttc tacactccca gcaagttcga agactccggc
+      841 agtgggaaga acaaggcccg cagcagcagt ggcccgaagc ctctggttcg agccaaggga
+      901 gcccagggcg ctgcccccgg tggaggtgag gctaggctgg gccagcaggg cagcgttccc
+      961 gcccctctgg ccctccccag tgacccccag ctccaccaga agaatgagga cgagtgtgcc
+     1021 gtgtgtcggg acggcgggga gctcatctgc tgtgacggct gccctcgggc cttccacctg
+     1081 gcctgcctgt cccctccgct ccgggagatc cccagtggga cctggaggtg ctccagctgc
+     1141 ctgcaggcaa cagtccagga ggtgcagccc cgggcagagg agccccggcc ccaggagcca
+     1201 cccgtggaga ccccgctccc cccggggctt aggtcggcgg gagaggaggt aagaggtcca
+     1261 cctggggaac ccctagccgg catggacacg actcttgtct acaagcacct gccggctccg
+     1321 ccttctgcag ccccgctgcc agggctggac tcctcggccc tgcaccccct actgtgtgtg
+     1381 ggtcctgagg gtcagcagaa cctggctcct ggtgcgcgtt gcggggtgtg cggagatggt
+     1441 acggacgtgc tgcggtgtac tcactgcgcc gctgccttcc actggcgctg ccacttccca
+     1501 gccggcacct cccggcccgg gacgggcctg cgctgcagat cctgctcagg agacgtgacc
+     1561 ccagcccctg tggagggggt gctggccccc agccccgccc gcctggcccc tgggcctgcc
+     1621 aaggatgaca ctgccagtca cgagcccgct ctgcacaggg atgacctgga gtcccttctg
+     1681 agcgagcaca ccttcgatgg catcctgcag tgggccatcc agagcatggc ccgtccggcg
+     1741 gcccccttcc cctcctgacc ccagatggcc gggacatgca gctctgatga gagagtgctg
+     1801 agaaggacac ctccttcctc agtcctggaa gccggccggc tgggatcaag aaggggacag
+     1861 cgccacctct tgtcagtgct cggctgtaaa cagctctgtg tttctgggga caccagccat
+     1921 catgtgcctg gaaattaaac cctgccccac ttctctactc tggaagtccc cgggagcctc
+     1981 tccttgcctg gtgacctact aaaaatataa aaattagctg ggtgtggtgg tgggtgcctg
+     2041 taatcccagc tacatgggag cctgaggcat gagaatcact tgaactcggg aggtggaggt
+     2101 tgcagtgagc tgagattgcg ccactgcact ccagtctggt cggcaagagt gagactccgt
+     2161 ctcaaaaaca aaacaaaaaa accacataac ataaatttat catctcgacc acttttcagt
+     2221 tcagtggcat tcacatctca tgtaa

@@ -1,0 +1,105 @@
+%%% DOCUMENT SETUP %%%
+\documentclass[11pt,a4paper,onecolumn]{article}
+\usepackage[greek,english]{babel}
+ 
+%%% LAYOUT %%%
+\usepackage{fullpage}
+\usepackage[parfill]{parskip}
+\usepackage{multicol}
+\usepackage{footnote}
+
+%%% GRAPHICS %%%
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{graphics}
+\usepackage{rotating}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{xfrac}
+\usepackage{float}
+\usepackage{dsfont}
+
+%%% FONT %%%
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+    \setmainfont{Linux Libertine O}
+  \usepackage{xunicode}
+  \usepackage{microtype}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[latin1]{inputenc}
+  \usepackage{times}
+  \usepackage{microtype}
+\fi
+
+%%% Coding %%%
+\usepackage{listings}
+\usepackage{pseudocode}
+
+\begin{document}
+\captionsetup{width=0.8\textwidth}
+\lstset{language=Python,breaklines=true,backgroundcolor=\color{white},frame=single}
+\thispagestyle{empty}
+
+{\Huge Jeroen Hofman \\}
+{\Large 2513225 \\
+Homework 1 \\
+SPF 2012}
+
+\section{Exercise 1}
+In order for $I_0,...,I_N$ to be a martingale, it must hold that $\mathbb{E}_n[I_{n+1}] = I_n$ for $n = 0,...,N$. We have: 
+\begin{align}
+  \mathbb{E}_n[I_{n+1}] &= \mathbb{E}_n\left[\sum^n_{j=0} \Delta_j (M_{j+1} - M_j)\right] \\
+  &= \mathbb{E}_n\left[\sum^{n-1}_{j=0} \Delta_j (M_{j+1} - M_j) + \Delta_n(M_{n+1} - M_n)\right] \\
+  &= \sum^{n-1}_{j=0} \Delta_j (\mathbb{E}_n[M_{j+1}] - \mathbb{E}_n[M_j]) +\Delta_n (\mathbb{E}_n[M_{n+1}] - \mathbb{E}_n[M_n])\\
+  &= \sum^{n-1}_{j=0} \Delta_j (M_{j+1} - M_j) + \Delta_n (M_n - M_n) \\
+  &= I_n
+\end{align}
+which proves that $I_0...,I_N$ is a martingale. In the second line we simply split the sum in two parts; the last term and the rest. In the third line we repeatedly use linearity of conditional expectations, first in splitting the two terms, then in the sum, then we use that $\Delta_j$ is constant and then we use it in the subtraction, this last operation we use in both terms. In the fourth line we use that $\mathbb{E}_n[M_j] = M_j$ for $j \leq n$ and $\mathbb{E}_n[M_{n+1}] = M_n$ since $M_0,...,M_N$ is a martingale. The last term vanishes and the first term is equal to $I_n$.
+
+\section{Exercise 2}
+Using the values for $u,d$ and $r$ we first compute a value for the risk-neutral probabilities $p$ and $q$ (I am omitting the wiggles throughout this exercise):
+
+\begin{align}
+  p &= \frac{1 + r - d}{u - d} = \frac{1 + 0.25 - 0.5}{2 - 0.5} = 0.5 \\
+  q &= 1 - p = 0.5
+\end{align}
+
+Then we use Theorem 2.4.7 from the book together with the 'multi-step-ahead' property, which gives us:
+
+\begin{equation}
+  V_0 = \mathbb{E}_0\left[\frac{V_{N}}{(1+r)^N}\right] 
+\end{equation}
+
+i.e. the value of the derivative at time 0 is the expectation of the discounted value of the derivative at time $N$. This is simple to calculate:
+
+\begin{align}
+  V_0 &= \mathbb{E}_0\left[\frac{V_{N}}{(1+r)^N}\right] \\
+  &= \mathbb{E}_0\left[\mathbb{E}_{N-1}\left[\frac{(S_{N} - S_{N-1})^+}{(1+r)^N}\right]\right] \\
+  &= \mathbb{E}_0\left[\frac{0.5 (S_{N} - S_{N-1}) - 0.5 * 0}{(1 + r)^N}\right] \\
+  &= \frac{0.5}{1+r} \mathbb{E}_0\left[\frac{(u - 1)S_{N-1}}{(1+r)^{N-1}}\right] \\
+  &= \frac{0.5}{1+r} (u - 1)S_0 \\
+  &= \frac{0.5}{1.25} (2 - 1)S_0 = \frac{2}{5}S_0
+\end{align}
+
+where we used in the second line that $\mathbb{E}_i[\mathbb{E}_j[X]] = \mathbb{E}_i[X]$ for $i \leq j$. In the third line we simply write out the expectation with the 'knowledge' of time $N$. In the fourth line we used linearity of expectations and in the fifth line we used theorem 2.4.4 (the martingale for discounted stock prices) together with linearity. Filling in specific values gives the desired result.
+
+\section{Exercise 3}
+Given the values above, one starts with a wealth given by equation 1.1.7:
+
+\begin{equation}
+  X_0 = \frac{1}{1.25}[0.5 (2 - 1)S_0 + q * 0] = 0.4S_0
+\end{equation}
+
+Then one buys an amount of shares given by equation 1.1.9:
+
+\begin{equation}
+  \Delta_0 = \frac{(2 - 1)S_0 - 0}{2S_0 - S_0} = 1 
+\end{equation}
+
+Then at time 1 the value of the portfolio consisting of $X_0 - \Delta_0 S_0$ in cash and $\Delta_0$ shares will be worth the same as the option, regardless of the outcome of the stock price. So by for instance selling an option and investing like described above, one completely hedges the risk associated with trading in the option in this simple model.
+
+\end{document}

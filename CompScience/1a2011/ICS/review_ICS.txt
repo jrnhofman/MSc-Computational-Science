@@ -1,0 +1,23 @@
+Review for ICS:
+
+Lectures of Albada, O'Nuillan & Cronenberger.
+Definitions model/simulations (workflow).
+Dangers/restrictions models/simulations.
+Reverse engineering.
+Reasons for studying simulations.
+Workflow phenomenon to computer experiment.
+Types of mathematical models.
+Validity and verification.
+Logistic equation.
+Write in dimensionless form.
+Solve by integrating.
+Find steady state.
+Graph drawing.
+Frictionless pendulum.
+Write system as system of 1st order ODE's.
+Lotka Volterra models (3 versions)(stability, asymptotic behaviour etc).
+Linear systems.
+Verhalst equation.
+
+
+

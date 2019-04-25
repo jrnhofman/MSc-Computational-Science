@@ -1,0 +1,32 @@
+
+# To compile the test program with the apr library, compile as follows:
+
+$ mpicc -o test test.c -L. -lapr -Wall
+
+# Then to run it with three processes (each produce three data points, for three time steps)
+
+$ mpiexec -np 3 ./test -s 100 -n 100 -d 0.5 -t 2 -v 6   # the arguments are bogus
+
+(..)
+
+# The test program will output some information that enable you to check that everything
+# went okay. The fitline (first few lines) should yield values 10, 0 and 0, and the rest
+# are the entries in the parms struct, which should be the same for all threads and also
+# what you passed as arguments.
+
+# See what the 'visualisation' file contains:
+
+$ cat string.data
+1.000000 0.000000 1.000000 2.000000 3.000000 4.000000 5.000000 6.000000 7.000000 8.000000 
+2.000000 1.000000 2.000000 3.000000 4.000000 5.000000 6.000000 7.000000 8.000000 9.000000 
+3.000000 2.000000 3.000000 4.000000 5.000000 6.000000 7.000000 8.000000 9.000000 10.000000 
+
+# During the execution of the program, the individual processes actually produce their 
+# own files (string.m{0,1,2,...}) which are concatenated when you call visualise_combine().
+# These temporary files are then backed up as string.m{0,1,2,...}.bkp for your reference.
+# The same happens with string.data the next time you call the program; it backs up the
+# previous results as string.data.bkp.
+
+# IMPORTANT: call visualise_combine() with all processes, not just one. Your program
+# will hang if at least one process does not reach visualise_combine().
+

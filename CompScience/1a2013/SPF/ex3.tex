@@ -1,0 +1,156 @@
+%%% DOCUMENT SETUP %%%
+\documentclass[11pt,a4paper,onecolumn]{article}
+\usepackage[greek,english]{babel}
+ 
+%%% LAYOUT %%%
+\usepackage{fullpage}
+\usepackage[parfill]{parskip}
+\usepackage{multicol}
+\usepackage{footnote}
+
+%%% GRAPHICS %%%
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{graphics}
+\usepackage{rotating}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{xfrac}
+\usepackage{float}
+\usepackage{dsfont}
+
+%%% FONT %%%
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+    \setmainfont{Linux Libertine O}
+  \usepackage{xunicode}
+  \usepackage{microtype}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[latin1]{inputenc}
+  \usepackage{times}
+  \usepackage{microtype}
+\fi
+
+%%% Coding %%%
+\usepackage{listings}
+\usepackage{pseudocode}
+
+\begin{document}
+\captionsetup{width=0.8\textwidth}
+\lstset{language=Python,breaklines=true,backgroundcolor=\color{white},frame=single}
+\thispagestyle{empty}
+
+{\Huge Jeroen Hofman \\}
+{\Large 2513225 \\
+Homework 3 \\
+SPF 2012}
+
+\section{Exercise 1}
+
+We have an 'all-or-nothing' contract with delivery date $T$ with strike $K$, where the payoff is 0 if the underlying stock exceeds $L$ during the lifetime of the contract, otherwise it is zero.
+
+If we want to compute the price at $t \in [0,T]$, under the restriction that $S(s) < ln(L)$ for all $s \leq t$, then we can use Proposition 18.4 by noting that we want to compute the probability that the process $X = lnS$ reaches at least a level of $ln(L)$ during the interval $[t,T]$. This is equivalent to 1 minus the probability of having a running maximum of $ln(L)$. This probability is given by:
+
+\begin{equation*}
+  (1 - F_{M(T)}(ln(L))) - (1 - F_{M(t)}(ln(L))) = F_{M(t)}(ln(L)) - F_{M(T)}(ln(L))
+\end{equation*}
+
+where $F_{M(t)}(ln(L))$ is given by Proposition 18.4.
+Since the payoff will be paid out at time $T$ and we want to determine the price at $t$, we have to discount back from $T$ to obtain the price $V(t)$ of the 'all-or-nothing' option at time $t$:
+
+\begin{equation*}
+  V(t) = \exp{(r(t-T))}(F_{M(t)}(ln(L)) - F_{M(T)}(ln(L)))
+\end{equation*}
+
+where $r$ is the riskfree interest rate as given by the market.
+
+\section{Exercise 2}
+
+Let $T>0$. We have the following problem:
+
+\begin{align*}
+  \frac{\partial F(t,x)}{\partial t} + \frac{\sigma^2}{2}\frac{\partial^2 F(t,x)}{\partial x^2} = 0, \; x \in \mathbb{R}, \; t \in [0,T] \\
+  F(T,x) = x^3, x \in \mathbb{R}
+\end{align*}
+
+We follow example 5.7 from the book. From Proposition 5.5 we have that:
+
+\begin{equation*}
+  F(t,x) = E_{t,x}[X^3_T]
+\end{equation*}
+
+with
+
+\begin{align*}
+  dX_s &= \sigma dW_s \\
+  X_t &= x
+\end{align*}
+
+giving
+
+\begin{equation*}
+  X_T = x + \sigma[W_T - W_t]
+\end{equation*}
+
+Now we compute $E_{t,x}[X^3_T]$ by inserting the solution above:
+
+\begin{align*}
+  E[X_T^3] &= E[x^3] + E[\sigma^3W^3_{T-t}] + E[3x\sigma^2W_{T-t}^2] + E[3x^2W_{T-t}] \\
+  &= x^3 + \sigma^3E[W^3_{T-t}] + 3x\sigma^2E[W_{T-t}] + 3x^2E[W_{T-t}] \\
+  &= x^3 + \sigma^3E[W^3_{T-t}] + 3x\sigma^2(T-t) + 0
+\end{align*}
+
+We now compute $E[W^3_{T-t}]$ using Ito's lemma with $Z(t,X(t)) = x^3$:
+
+\begin{align*}
+  dZ(t) &= 3x^2dW(t) + 0.5 * 6xdW(t) \\
+  &= 3W^2(t)dW(t) + 3W(t)dt
+\end{align*}
+
+Now integrate and take the expectation:
+
+\begin{align*}
+  E[Z(t)] &= 3\int^T_tE[W^2(s)]dW(s) + 3\int_t^TE[W(s)]ds\\
+  &= 3\int_t^TsdW(s) + 0\\
+  &= 0
+\end{align*}
+
+So we obtain:
+
+\begin{align*}
+  F(t,x) = E_{t,x}[X_T^3] = x^3 + 3x\sigma^2(T-t)
+\end{align*}
+
+We can check the correctness by computing the PDE:
+
+\begin{align*}
+  \frac{\partial F(t,x)}{\partial t} + \frac{\sigma^2}{2}\frac{\partial^2F(t,x)}{\partial x^2} = 0 \\
+  -3x\sigma^2 + 3x\sigma^2 = 0
+\end{align*}
+
+\section{Exercise 3}
+
+We are given the process:
+
+\begin{align*}
+  dX(t) &= X(t)dt + dW(t), \; t\geq0 \\
+  X(0) &= 0
+\end{align*}
+
+The process $Y(t) = e^t \int^t_0 e^sdW(s)$ satisfies this PDE, which can be seen by applying the product rule of Ito's lemma:
+
+\begin{align*}
+  dY(t) = d\left(e^t \int^t_0 e^sdW(s)\right) &= \int^t_0 e^sdW(s) de^t + e^t d\left(\int^t_0 e^sdW(s)\right) + de^t d\left(\int^t_0 e^sdW(s)\right) \\
+   &= e^t \int^t_0 e^sdW(s) dt + e^t e^{-t} dW(t) + e^t dt e^{-t} dW(t)\\
+   &= Y(t) dt + dW(t)
+\end{align*}
+
+since $dt dW(t) = 0$.
+
+Also we have $Y(0) = 0$. If we use Lemma 4.15 we can now immediately conclude that $E[Y(t)] = 0$ and $Var[Y(t)] = e^{2t} \int^t_0 e^{-2s}ds = -0.5 e^{2t}(e^{-2t} - 1) = 0.5(e^{2t} - 1)$.
+
+\end{document}

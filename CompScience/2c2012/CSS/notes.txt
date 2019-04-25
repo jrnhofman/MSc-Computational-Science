@@ -1,0 +1,60 @@
+Lecture Monday, June 4th.
+
+Complex system  : not a simple system, like classical physical problems.
+                : many degrees of freedom, high degree of individuality of the units in the system.
+                : strong coupling.
+                : a hard variant are the intractable problems, problems not solvable in a short enough time.
+
+Characteristics of complex systems
+                : emergence, types; unfolding (dynamical emergence, i.e. 2+2=4), combinatorial (whole > sum of parts, 2H + O -> H2O), statistical (patterns), symmetry emergence.
+                : unpredictability, chaotic patterns due to coupling (chaos theory).
+                : scalability, often given and easy to handle.
+                : incomplete levels, for instance slow variables and cross level phenomena (for instance quantum phenomena)
+                : sometimes no level in complex systems, for instance the bank ranks
+
+Logical depth   : the smallest number of steps from axioms to theorem (usually not known).
+
+Kolmogorov complexity
+                : the smallest size by which a string can be described.
+
+
+
+Lecture Tuesday, June 5th.
+(Cellular automata, see slides on BB)
+
+Slide 9         : transition function incorrect.
+Slide 11        : Universal Computation; being able to compute any Türing machine.
+Slide 15        : k in table should be k-1.
+Slide 25        : transient state, can be reached but only once. All finite state machines are cyclic.
+Slide 27        : 1/f noise, noise spectrum.
+Slide 37        : reproducability is also an advantage.
+
+
+
+Lecture Wednesday, June 6th.
+(Agent-based modeling, see slides on BB)
+
+
+
+Lecture Monday, June 11th.
+(Network Modeling, see slides on BB)
+
+Complex network        : Part of the set of interesting graphs, rather than just random networks/graphs.
+Clustering Coefficient : Measure for the number of triangles in a network.
+
+
+
+Lecture Tuesday, June 12th.
+(Random Graphs, see slides on BB)
+
+At the phase transition the cluster size scales with a power law.
+
+
+Lecture Wednesday, June 13th.
+(Watts-Strogatz networks)
+
+Combining small-world networks with clustering.
+Weak links make the system work, for instance jobs are mostly gained through acquintances in stead of friends.
+Power law systems are scale-free systems.
+Power law distributions are never really realistic, no people with 10^6 friends!
+Logarithmic path length is important for small-world properties.

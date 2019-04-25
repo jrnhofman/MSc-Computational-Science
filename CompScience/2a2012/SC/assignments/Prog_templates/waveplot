@@ -1,0 +1,84 @@
+#!/usr/local/bin/perl --	# -*-Perl-*-
+
+# $Id: postwave,v 1.1 1995/08/08 12:40:51 bjo Exp $
+# Accumulate data per task and write data per time step to file.
+
+# Go to directory ~/tmp/wave.
+
+@password = getpwuid($<);	# get the passwd data
+
+if (chdir($password[7]."/tmp/wave")) {
+    ($user) = split(/,/, $password[6]);
+    print "Postprocessing wave data for $user in directory:\n";
+    print "\t$password[7]/tmp/wave\n";
+} else {
+    die "directory $password[7]/tmp/wave does not exist\n";
+}
+
+# Open files with name string.* (shell globbing).
+
+$i = 0;
+while ($filename = <string.*>) {
+    open($i, $filename);	# input filehandles are `0', `1', ...
+    $i += 1;
+}
+$ninfile = $i;			# number of input files
+
+# Open gnuplot file for writing plot commands.
+
+open(GNUPLOT, ">wave.gnu");	# create gnuplot file
+print GNUPLOT "set data style lines\n";
+print GNUPLOT "set yrange [-1:1]\n";
+
+# Scan string.* files per time step and write accumulated data to file.
+
+$finished = 0;
+$i = 0;
+while (! $finished) {
+    if (! &scan_next_step(GNUPLOT, $i)) {
+	$finished = 1;
+    }
+    $i += 1;
+}
+
+
+
+# Scan next time step, write plot command in gnuplot file, write
+# accumulated data to data file.  If data is actual scanned return 1,
+# otherwise 0.
+
+sub scan_next_step {
+    local($gnuplot, $i) = @_;
+
+    while ($line = <0>) {
+	if ($line =~ /Time/) {
+	    chop($line);
+	    print $gnuplot "plot \"wave${i}.dat\" title \"$line\"\n";
+	    open(OUTPUT, ">wave".$i.".dat");
+	    print OUTPUT "# $line\n";
+	    &scan_values(OUTPUT);
+	    return 1;
+	}
+    }
+
+    return 0;
+}
+
+
+
+# Scan string values and write them to data file.
+
+sub scan_values {
+    local($outfile) = @_;
+    local($j, $line);
+    
+    for ($j = 0; $j < $ninfile; $j++) {
+	while ($line = <$j>) {
+	    if ($line =~ /\d+\s+(-?\d+\.\d+)/) {
+		print $outfile $1, "\n";
+	    } elsif ($line =~ /end/) {
+		last;
+	    }
+	}
+    }
+}

@@ -1,0 +1,184 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      5374,        175]
+NotebookOptionsPosition[      4908,        154]
+NotebookOutlinePosition[      5244,        169]
+CellTagsIndexPosition[      5201,        166]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.532246654689822*^9, 3.5322466765724993`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Simulated annealing", "Section",
+ CellChangeTimes->{{3.5331933322935047`*^9, 3.533193334640674*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"citylist", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{"\"\<pos_sim.dat\>\"", ",", "\"\<Table\>\""}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"tour", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Import", "[", 
+      RowBox[{"\"\<route_sim.dat\>\"", ",", "\"\<Table\>\""}], "]"}], "+", 
+     "1"}], "//", "Flatten"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"route", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"citylist", "[", 
+      RowBox[{"[", "#", "]"}], "]"}], "&"}], "/@", "tour"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"route", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"route", ",", 
+     RowBox[{"route", "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Dimensions", "[", "citylist", "]"}], ";"}], "\n", 
+ RowBox[{"Graphics", "[", 
+  RowBox[{"Line", "[", "route", "]"}], "]"}], "\n", 
+ RowBox[{
+  RowBox[{"datalist", " ", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{"\"\<data_sim.dat\>\"", ",", "\"\<Table\>\""}], "]"}]}], " ", 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"Flatten", "[", "datalist", "]"}], "]"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "700"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "5000"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"AxesOrigin", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "400"}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Markov chain\>\"", ",", "\"\<Tour length\>\""}], "}"}]}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.533122216324952*^9, 3.533122229877069*^9}, 
+   3.533122273277714*^9, {3.533122672570252*^9, 3.5331226736316843`*^9}, {
+   3.533122963576882*^9, 3.533122976070677*^9}, {3.533124189523596*^9, 
+   3.5331241936092587`*^9}, 3.5331933784830437`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Genetic algorithm", "Section",
+ CellChangeTimes->{{3.533193344504425*^9, 3.5331933506425953`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"citylist", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{"\"\<pos_gen.dat\>\"", ",", "\"\<Table\>\""}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"tour", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Import", "[", 
+      RowBox[{"\"\<route_gen.dat\>\"", ",", "\"\<Table\>\""}], "]"}], "+", 
+     "1"}], "//", "Flatten"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"route", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"citylist", "[", 
+      RowBox[{"[", "#", "]"}], "]"}], "&"}], "/@", "tour"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"route", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"route", ",", 
+     RowBox[{"route", "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Dimensions", "[", "citylist", "]"}], ";"}], "\n", 
+ RowBox[{"Graphics", "[", 
+  RowBox[{"Line", "[", "route", "]"}], "]"}], "\n", 
+ RowBox[{
+  RowBox[{"datalist", " ", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{"\"\<data_gen.dat\>\"", ",", "\"\<Table\>\""}], "]"}]}], " ", 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{
+   RowBox[{"ListPlot", "[", 
+    RowBox[{
+     RowBox[{"Flatten", "[", "datalist", "]"}], ",", 
+     RowBox[{"AxesOrigin", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "600"}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "200"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"600", ",", "1500"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "400"}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Generation\>\"", ",", "\"\<Tour length\>\""}], "}"}]}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.5331229305433273`*^9, 3.533122936455021*^9}, {
+   3.533122969713595*^9, 3.533122978590115*^9}, {3.533124176217287*^9, 
+   3.5331241852937803`*^9}, 3.533193387730605*^9}]
+}, Open  ]]
+},
+WindowSize->{1366, 744},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"7.0 for Linux x86 (64-bit) (November 11, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 191, 4, 32, "Input"],
+Cell[CellGroupData[{
+Cell[761, 28, 106, 1, 73, "Section"],
+Cell[870, 31, 1964, 56, 187, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2871, 92, 104, 1, 73, "Section"],
+Cell[2978, 95, 1914, 56, 187, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

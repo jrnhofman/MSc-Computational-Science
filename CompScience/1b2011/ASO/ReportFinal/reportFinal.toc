@@ -1,0 +1,13 @@
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {2}Model}{3}
+\contentsline {subsection}{\numberline {2.1}Perception Zones}{3}
+\contentsline {subsection}{\numberline {2.2}Forces}{4}
+\contentsline {subsubsection}{\numberline {2.2.1}Interaction Forces}{5}
+\contentsline {subsubsection}{\numberline {2.2.2}Individual Forces}{6}
+\contentsline {subsection}{\numberline {2.3}Predator}{6}
+\contentsline {section}{\numberline {3}Implementation}{7}
+\contentsline {subsection}{\numberline {3.1}Perception zones}{7}
+\contentsline {subsection}{\numberline {3.2}Framework}{10}
+\contentsline {section}{\numberline {4}Experimental set-up}{10}
+\contentsline {section}{\numberline {5}Results}{12}
+\contentsline {section}{\numberline {6}Conclusions and Discussion}{13}

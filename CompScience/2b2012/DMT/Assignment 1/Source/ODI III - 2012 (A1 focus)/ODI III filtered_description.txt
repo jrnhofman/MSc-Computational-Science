@@ -1,0 +1,8 @@
+'ODI III filtered' is a semi-colon separated dataset that was created from the data we collected in Lecture 1 (2012). It was mostly typed in by a classmate of yours, I appreciate the help (k++ twice). He is preparing a small report about the process of entering the data into a csv file, so I'm just saying a couple of words about what is specific to the dataset I created from his version.
+
+The dataset is called filtered, because I removed the gender information, which I needed for my own stats. Also, I altered a couple of columns, so, for example, I transformed the three columns corresponding to answers to the question "When's your birthday?", and the time to go to bed is also not in hours:minutes format. The transformation is not particularly complicated, so if you really want to, you can probably find (and describe) how I transformed the columns, but for analysis of relative values the current format is just fine. If you are curious, you can attempt to reconstruct the original dates and times, if it's correct, your grade will be higher than without.
+
+For the classification/regression task of Assignment 1, you can use any of the attributes as 'label' (RapidMiner terminology). You will probably not get very high accuracies, but that's not a problem here. Conclusions can still be drawn, applicabilities of algorithms discussed, perhaps a 'what would help most to increase accuracy' discussion can also come out of it.
+
+Good luck!
+Zoli

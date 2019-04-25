@@ -1,0 +1,128 @@
+%%% DOCUMENT SETUP %%%
+\documentclass[11pt,a4paper,onecolumn]{article}
+\usepackage[greek,english]{babel}
+ 
+%%% LAYOUT %%%
+\usepackage{fullpage}
+\usepackage[parfill]{parskip}
+\usepackage{multicol}
+\usepackage{footnote}
+
+%%% GRAPHICS %%%
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{graphics}
+\usepackage{rotating}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{xfrac}
+\usepackage{float}
+\usepackage{dsfont}
+
+%%% FONT %%%
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+    \setmainfont{Linux Libertine O}
+  \usepackage{xunicode}
+  \usepackage{microtype}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[latin1]{inputenc}
+  \usepackage{times}
+  \usepackage{microtype}
+\fi
+
+%%% Coding %%%
+\usepackage{listings}
+\usepackage{pseudocode}
+
+\begin{document}
+\captionsetup{width=0.8\textwidth}
+\lstset{language=Python,breaklines=true,backgroundcolor=\color{white},frame=single}
+\thispagestyle{empty}
+
+{\Huge Jeroen Hofman \\}
+{\Large 2513225 \\
+Homework 2 \\
+SPF 2012}
+
+\section{Exercise 1}
+
+We are given a process $X$ with a stochastic differential:
+
+\begin{equation}
+  dX(t) = \alpha X(t)dt + \sigma X(t)dW(t)
+\end{equation}
+
+where $\sigma$ and $\mu$ are adapted processes. Furthermore we have $Z(t) = X^{-1}(T)$. By taking $\mu(t) = \alpha X(t)$ and $\sigma(t) = \sigma X(t)$ we obtain $dX(t) = \mu(t)dt + \sigma(t)dW(t)$. Furthermore we take $f(t,X(t)) = X^{-1}(t)$. Then according to Theorem 4.10 and Lemma 4.11 from Bj\"ork $f$ (and hence $Z$) follows a stochastic differential equation given by:
+
+\begin{equation}
+  df(t,X(t)) = \left[ \frac{\partial f}{\partial t} + \mu \frac{\partial f}{\partial x} + \frac{1}{2}\sigma^2\frac{\partial^2f}{\partial x^2}\right]dt + \sigma\frac{\partial f}{\partial x}dW(t)
+\end{equation}
+
+By plugging $dX$ in the equation we obtain:
+
+\begin{align}
+  dZ &= \left[ \frac{\partial Z}{\partial t} + \mu \frac{\partial Z}{\partial x} + \frac{1}{2}\sigma^2\frac{\partial^2Z}{\partial x^2}\right]dt + \sigma\frac{\partial Z}{\partial x}dW(t) \\
+  &= \left[0 + -X^{-2} \alpha X + \frac{1}{2}2X^{-3}\sigma^2X^2\right]dt + (-X^2)\sigma XdW\\
+  &= \left(\sigma^2 -\frac{\alpha}{2}\right)X^{-1}dt - \sigma X^{-1} dW \\
+  &= \left(\sigma^2 -\frac{\alpha}{2}\right)Zdt - \sigma Z dW
+\end{align}
+
+\section{Exercise 2}
+
+Given $m(t) = E[X(t)]$, with $dX(t) = \alpha X(t)dt + \sigma(t)dW(t)$. If we integrate and take the expected value then we obtain:
+
+\begin{align}
+  E[X(t)] &= E\left[X_0 + \alpha \int^t_0 X(s)ds + \int^t_0 \sigma(s)dW(s) \right] \\
+  &= X_0 + \alpha E\left[\int^t_0 X(s) ds\right] + E\left[\int^t_0 \sigma(s)dW(s)\right]
+\end{align}
+
+According to Proposition 4.4 the second integral is zero if:
+\begin{itemize}
+\item 
+  $\sigma(s)$ is an adapted process
+\item
+  $\int^t_0 E[\sigma^2]ds < \infty$
+\end{itemize}
+
+If we assume this to hold, then we are only left with the first integral. For the first integral we can take the expectation inside:
+
+\begin{equation}
+  E[X(t)] = X_0 + \alpha \int^t_0 E[X(s)]ds
+\end{equation}
+
+If we take the time derivative of this and use that $E[X(t)] = m(t)$, we obtain:
+
+\begin{equation}
+  \dot{m}(t) = Z_0 m(t)
+\end{equation}
+
+This can be solved to give:
+
+\begin{equation}
+  m(t) = Z_0 e^{\alpha t}
+\end{equation}
+
+
+\section{Exercise 3}
+
+We are given a stochastic process:
+
+\begin{equation}
+  Z(t) = \frac{W^2(t)}{t}, \; t \geq 1
+\end{equation}
+
+According to Lemma 4.9 this process is a martingale iff its Ito differential has no t-dependency. Similarly to Exercise 1 we are given a stochastic differential equation $dX(t) = \mu (t)dt + \sigma (t)dW(t)$ where $\mu = 0$ and $\sigma = 1$. Furthermore we have $f(t,X(t)) = Z(X(t)) = \frac{X^2(t)}{dt}$. We use Theorem 4.10 and Proposition 4.11 just as in Exercise 1 to get: 
+
+\begin{align}
+  dZ &= \left[ \frac{\partial Z}{\partial t} + \mu \frac{\partial Z}{\partial x} + \frac{1}{2}\sigma^2\frac{\partial^2Z}{\partial x^2}\right]dt + \sigma\frac{\partial Z}{\partial x}dW(t) \\
+  &= \left[\frac{-W^2(t)}{t^2} + 0 + \frac{1}{2}\frac{2}{t} \right]dt + \frac{2W(t)}{t}dW(t) \\
+  &= \left[ \frac{-W^2(t)}{t^2} + \frac{1}{t}\right]dt + \frac{2W(t)}{t}dW(t)
+\end{align}
+
+Now it seems that this system has a systematic drift and hence is not a martingale in the strict sense. Note however, that the expectation of the dt term is 0 since $E[W^2(s)] = t$, which makes this system behave 'almost' like a martingale.
+\end{document}

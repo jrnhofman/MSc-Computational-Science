@@ -1,0 +1,38 @@
+# Generated automatically from Makefile.in by configure.
+##### User configurable options #####
+# This is an example Makefile.in (or Makefile configured with mpireconfig)
+# for the programs cpi, pi3, and cpilog.  
+
+# this directory contains the MPI distribution
+
+INSTALL_DIR =  /usr/local/gnu-mpich-ib
+
+# these directories contain the sources of the simulation programme and
+# the directory in which the executable is generated. 
+
+CC          = gcc 
+CLINKER     = mpicc
+OPTFLAGS    = -g 
+
+FLIB_PATH   = -L$(INSTALL_DIR)/lib
+LIB_LIST    = -lm
+
+INCLUDE_DIR =  -I$(INSTALL_DIR)/include
+
+### End User configurable options ###
+CFLAGS  =  -DFORTRANUNDERSCORE  -DHAS_XDR=1 -DSTDC_HEADERS=1  -DHAVE_STDLIB_H=1 -DMALLOC_RET_VOID=1 -DHAVE_SYSTEM=1 -DHAVE_NICE=1 -DHAVE_LONG_DOUBLE=1 -DHAVE_LONG_LONG_INT=1 $(OPTFLAGS) $(INCLUDE_DIR) -DMPI_$(ARCH) -Wall
+FFLAGS  = $(INCLUDE_DIR) $(OPTFLAGS)
+LIBS    = $(LIB_PATH) $(LIB_LIST)
+
+EXECS	= formal
+
+all: $(EXECS)
+
+formal:$(OBJS)
+	$(CLINKER) $(OPTFLAGS) -o formal formal.c $(LIB_PATH) $(LIB_LIST)
+cleanall:
+	rm *.o
+	rm formal
+clean:	
+	rm cpi.*
+	rm logfile

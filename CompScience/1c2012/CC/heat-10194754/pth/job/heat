@@ -1,0 +1,34 @@
+#PBS -lnodes=1:cores8:ppn=8
+#PBS -lwalltime=5:00
+cd $TMPDIR
+tar zxf $HOME/heat-10194754.tar.gz
+cd heat-10194754
+module load openmpi/gnu
+./configure > tmp
+make clean > tmp
+make > tmp
+make -f data.mk gradient_100x100.pgm CONVERT=convert > tmp
+make -f data.mk uni_100x100.pgm CONVERT=convert > tmp
+make -f data.mk gradient_1000x1000.pgm CONVERT=convert > tmp
+make -f data.mk uni_1000x1000.pgm CONVERT=convert > tmp
+make -f data.mk gradient_20000x500.pgm CONVERT=convert > tmp
+make -f data.mk uni_20000x500.pgm CONVERT=convert > tmp
+make -f data.mk gradient_500x20000.pgm CONVERT=convert > tmp
+make -f data.mk uni_500x20000.pgm CONVERT=convert > tmp
+make -f data.mk gradient_5000x5000.pgm CONVERT=convert > tmp
+make -f data.mk uni_5000x5000.pgm CONVERT=convert > tmp
+cd pth
+echo start of job
+./heat -c ../uni_5000x5000.pgm -t ../gradient_5000x5000.pgm -n 5000 -m 5000 -e 0 -i 1000 -k 100000 -p 1
+./heat -c ../uni_5000x5000.pgm -t ../gradient_5000x5000.pgm -n 5000 -m 5000 -e 0 -i 1000 -k 100000 -p 2
+./heat -c ../uni_5000x5000.pgm -t ../gradient_5000x5000.pgm -n 5000 -m 5000 -e 0 -i 1000 -k 100000 -p 3
+./heat -c ../uni_5000x5000.pgm -t ../gradient_5000x5000.pgm -n 5000 -m 5000 -e 0 -i 1000 -k 100000 -p 4
+./heat -c ../uni_5000x5000.pgm -t ../gradient_5000x5000.pgm -n 5000 -m 5000 -e 0 -i 1000 -k 100000 -p 6
+./heat -c ../uni_5000x5000.pgm -t ../gradient_5000x5000.pgm -n 5000 -m 5000 -e 0 -i 1000 -k 100000 -p 8
+./heat -c ../uni_5000x5000.pgm -t ../gradient_5000x5000.pgm -n 5000 -m 5000 -e 0 -i 1000 -k 100000 -p 10
+./heat -c ../uni_5000x5000.pgm -t ../gradient_5000x5000.pgm -n 5000 -m 5000 -e 0 -i 1000 -k 100000 -p 12
+./heat -c ../uni_5000x5000.pgm -t ../gradient_5000x5000.pgm -n 5000 -m 5000 -e 0 -i 1000 -k 100000 -p 16
+./heat -c ../uni_5000x5000.pgm -t ../gradient_5000x5000.pgm -n 5000 -m 5000 -e 0 -i 1000 -k 100000 -p 32
+./heat -c ../uni_5000x5000.pgm -t ../gradient_5000x5000.pgm -n 5000 -m 5000 -e 0 -i 1000 -k 100000 -p 64
+./heat -c ../uni_5000x5000.pgm -t ../gradient_5000x5000.pgm -n 5000 -m 5000 -e 0 -i 1000 -k 100000 -p 128
+echo end of job

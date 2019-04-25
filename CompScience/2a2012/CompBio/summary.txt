@@ -1,0 +1,29 @@
+Summary computational biology:
+
+No detailed biological info, be able to use terminology.
+Spatial structure of amino acids is important.
+Rosetta Stone of Life.
+Central dogma of molecular biology.
+Definition of life.
+
+Restriction enzymes and electrophoresis.
+Methods for copying DNA: DNA-cloning, polymerase chain reaction
+Methods for sequencing: Sanger sequencing, 454 sequencing
+
+Dynamic programming (score functions etc, FASTA, BLAST)
+Simulated annealing
+Genetic algorithms
+Hierarchical clustering method
+
+Metabolic pathway, example glycolysis
+Law of mass action
+Michaelis-Menten kinetics (quasi-equilibrium assumption, extensions)
+Hill equation
+Stoichiometric analysis
+
+Gene networks
+ODE modelling approach
+Boolean network approach
+
+
+

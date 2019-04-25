@@ -1,0 +1,89 @@
+Lecture 3 Computational Biology
+February 16, 2012
+Lecture 2 page 5 - Lecture 3 page 3
+
+Terms to look up: 
+- restriction enzymes
+- Cloning using bacteria (cutting open bacterial DNA and insert human gene for reproduction)
+- Complementary DNA
+- Polymerase Chain Reaction (PCR) (see very clear slide)
+- Sanger sequencing
+- Microarrays
+- 454 sequencing
+- genome/gene (relation with proteins)
+- microRNA (showing up much more in animals than plants)
+- types of genetic disorder
+- homology
+
+How to find non-coding regions in DNA?
+- look for sequences not coding for amino acids
+
+Why is the human genome so small and has less genes than plants?
+- increasing complexity between genes
+- microRNA
+- many other reasons
+
+Sequence alignment, how to decide where to insert gaps?
+- PAM250 mutation matrix
+
+Lecture 4 Computational Biology
+February 20, 2012
+Lecture 3 page 3 - Lecture 3 page 12
+
+Terms to look up:
+- dynamic programming (sequence analysis)
+- FASTA/BLAST algorithm
+- Pearson coefficient = \sum (x_i - x_bar)(y_i - y_bar) / \sqrt (\sum (x_i - x_bar)^2 \sum (y_i - y_bar)^2)
+  p close to 1 -> strong linear correlation
+- Spearman coefficient (look up what it does!)
+  coefficient = \sum (r_i_x - r_x_bar) \sum (r_i_y - r_y_bar) / \sqrt (\sum (r_i_x - r_x_bar)^2 \sum (r_i_y - r_y_bar)^2)
+
+
+How to solve sequence alignment?
+- Dynamic programming (score function, causes problems)
+- Cluster analysis
+- Simulated annealing
+- Genetic algorithms
+
+Why is a constant penalty not fair?
+- Multiple subsequent permutations are much less likely than one (which happens frequently in meiosis)
+
+
+Lecture 5 Computational Biology
+February 23, 2012
+Lecture 3 page 12 - Lecture 3 page 17
+
+Things to look up:
+- Simulated annealing for sequence alignment
+
+Lecture 6 Computational Biology
+February 27, 2012
+Lecture 3 page 17 - Lecture 3 page 23
+
+Things to look up:
+- Genetic algorithms for sequence alignment
+
+Lecture 7 Computational Biology
+March 1, 2012
+Lecture 4 page 1 - Lecture 4 
+
+Things to look up:
+- Anabolic/catabolic reaction
+- stoichiometric (factors in front of compounds)
+
+Lecture 8 Computational Biology
+March 5, 2012
+GUEST LECTURE
+
+Lecture 9 Computational Biology
+March 8, 2012
+DID NOT ATTEND 
+
+Lecture 10 Computational Biology
+March 12, 2012
+DID NOT ATTEND
+
+Lecture 11 Computational Biology
+March 15, 2012
+-Boolean networks  
+

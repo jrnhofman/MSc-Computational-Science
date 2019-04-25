@@ -1,0 +1,43 @@
+- What is a CA?
+
+A Cellular Automata is a discrete model consisting of a regular grid of cells, where each cell can take on a finite number of states and behaves like a Finite State Machine. An initial state is selected by assigning a state for each cell. A new generation is created by updating the cells according to some fixed rule, which is a function of the current cell state and neighboring cell states. This rule or transition function is usually identical for every cell.
+
+- In what sense is a CA 'emergent' or 'self-organising'?
+
+A CA is emergent in the sense that collective or macroscopic behaviour of the cells are difficult to anticipate based on the simple rules given for each cell. In this sense the system can exhibit behaviour that is only apparent on the macroscopic behaviour and is often only observed by carrying out the simulation. A good example is Gosper's Glider Gun, where simple updates (according to Coonway's Game of Life) and a specific initial state lead to a behavior of the cells which resembles a gun.
+
+- Some history of 2D and 1D CAs
+
+Von Neumann was one of the first scientists to work with the concept of cellular automata in the 1940s for his research in finding self-replicating machines. At the same time also Wiener and Rosenblueth developed a CA model of excitable media. In the 1970s the Game of Life (developed by Conway) became popular because of its simple rules but complicated emerging behavior. In the 1980s Wolfram published papers in which he suggested CAs to be capable of Universal Computation. In 1990 Lindgren proved that Universal Computation was possible using 1D CAs.
+
+- What is a Turing Machine?
+
+A Turing Machine is a device that manipulates symbols on a strip of tape according to a table of rules. Turing machines can simulate any computer algorithm and are able of universal computation. Turing machines are also used in the theories of computational complexity, where complexity classes are linked to the ability to compute solutions for problems on Turing machines. Certain Turing machines closely resemble 1D cellular automata, in the sense that the update rules can be similar.
+
+- Specify Wolfram 1D CAs (WCAs) and their rule space
+
+A 1D WCA consists of a row of cells where each cell can take k values. The cells are updated according to a transition function, which is a function of the state of the current cell as well as r cells to the left and right of the target cell, giving a total number of rules of k^k^(2r+1). A given ruleset \Delta assigns any of k values to each of the k^(2r+1) possible tuples, for instance for k = 2, r = 1, 100 -> 1, 011 -> 0, etc (8 rules in total).
+
+- Specify ruled code computation for WCAs
+
+The rule code for a WCA is obtained by ordering all the k^(2r+1) elements of the transition function, for instance when k = 2 and r = 1 order them in a binary fashion from high to low (i.e. \Delta_111, \Delta_110, \Delta_101, \Delta_\100, etc.). The outcome of each transisition is given as a string, for instance, when 111 -> 1, 110 -> 0, etc, the resulting string is 10..... . This string can be coded back to a decimal number, giving the rule number of the WCA. Similarly from any given rule number one can extract the rules for the transition function.
+
+- Notable rules and their behavior
+
+Notable rules are R30, which produces an chaotic pattern of triangles of different sizes, regardless of input. R110 is the only rule for which Turing completeness has been proven, i.e. capable of universal computation. This rule as well produces a chaotic pattern of triangles. Rule 184 can be used for the simulated of traffic flow, surface deposition and ballistic annihilation. Finally rule 90 reproduces (with initial pattern ...0001000....) a sierpiński triangle.
+
+- Boundary conditions, notable configurations
+
+On 2D CAs boundary conditions become apparent. There are two major types of boundary conditions, periodic and blocking boundary conditions. Periodic boundary conditions deform the 2D rectangular surface to a cylinder (if periodic in one dimension) or a torus. A grid with blocking boundary conditions often has static values at the edges which are used for the computation of the neighbors. Several types of states can occur on such a 2D lattice. Garden-of-Eden states are states which are unreachable and can only be initialized but never returned to. Cyclic states are states which are returning with a certain frequency. Transient states are states which can be reached but only once, the system will never return to such a state.
+
+- Behavioral classes of WCA, universal computation in WCA
+
+There are 4 different classes describing the behavior of a WCA (and a CA in general). Class 1 are models which reach a homogeneous state, where all cells obtain the same value eventually. Class 2 consists of models reaching an inhomogeneous state, which are either simple stable states or periodic and separated structures. Class 3 consists of chaotic nonperiod patterns. Class 4 leads to complex, localized propagating structures. It is believed (but not proven except for rule 110) that all class 4 CAs are capable of universal computation, i.e. the computation of everything which can be computed.
+
+- Langton's "edge of chaos"
+
+Langton introduced a parameter to classify CAs, given by the ratio of the number of transitions to non-quiescent states relative to the total number of transitions. This parameter \lambda around 0 means a class 1 system, \lambda around 1 indicates a class 3 system. Somewhere between low values of \lambda for class 1 and 2 CAs and high values of \lambda for class 3 CAs is a critical region (system-dependent) called the 'edge of chaos', characteristic for class 4 models. In this region the CA is not well-ordered but also not very chaotic, leading to interesting behavior and a very high complexity of the system. Systems of this kind do not have clear continuous analogues to continuous systems.
+
+- How to use CA in modeling?
+
+CAs can be used as a modeling device, for instance for differential equations. The advantage of using a CA is that no numerical approximations are made and so stability analysis is not needed. One can start directly from a discrete system. CAs are also easy to implement, simple to use/modify and fast. A downside is finding the right CA model corresponding to a particular differential equation. An example of this type of connection was shown by Alfons Hoekstra, in that case for the Navier stokes equation and a specific CA class.
